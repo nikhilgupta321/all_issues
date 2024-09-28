@@ -7,7 +7,7 @@ const Journals = () => {
   const [data, setData] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
 
-  let url = "http://localhost:8080/api/journals";
+  let url = "https://stocksgainer.com/api/journals";
 
   const handleChange = async (e,value) => {
     try {
@@ -68,25 +68,25 @@ const Journals = () => {
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 ">
             <div className="overflow-hidden">
-              <table className="min-w-full border text-sm font-light border-slate-700">
-                <thead className="border-b font-medium ">
+              <table className="min-w-full text-sm font-light border border-slate-700">
+                <thead className="font-medium border-b ">
                   <tr className="bg-gray-100">
-                    <th scope="col" className="border p-2 text-sm" nowrap="">
+                    <th scope="col" className="p-2 text-sm border" nowrap="">
                       S. NO.
                     </th>
-                    <th scope="col" className="border p-2 text-sm">
+                    <th scope="col" className="p-2 text-sm border">
                       SHORT NAME
                     </th>
-                    <th scope="col" className="border p-2 text-sm">
+                    <th scope="col" className="p-2 text-sm border">
                       FULL NAME
                     </th>
-                    <th scope="col" className="border p-2 text-sm">
+                    <th scope="col" className="p-2 text-sm border">
                       DOMAIN
                     </th>
-                    <th scope="col" className="border p-2 text-sm">
+                    <th scope="col" className="p-2 text-sm border">
                       EMAIL
                     </th>
-                    <th scope="col" className="border p-2 text-sm">
+                    <th scope="col" className="p-2 text-sm border">
                       SAMPLE FILE
                     </th>
                   </tr>
@@ -95,8 +95,8 @@ const Journals = () => {
                   {data.map((val, ind) => {
                     return (
                       <tr class="border  border-black">
-                        <td className="border p-2 font-medium ">{ind + 1}</td>
-                        <td className="border p-2 font-medium text-blue-500">
+                        <td className="p-2 font-medium border ">{ind + 1}</td>
+                        <td className="p-2 font-medium text-blue-500 border">
                           <Link
                             to={`/issues/journals/entries/status/${val.id}`}
                             onClick={() => handleShortNameClick(val.id)}
@@ -104,19 +104,19 @@ const Journals = () => {
                             {val.short_name}
                           </Link>
                         </td>
-                        {/* <td onClick={() => handleSortNameClick(val)} className="border p-2 font-medium text-blue-500">
+                        {/* <td onClick={() => handleSortNameClick(val)} className="p-2 font-medium text-blue-500 border">
                             <Link to={"/issues/journals/entries/status/149"}>
                               {val.short_name}
                             </Link>
                           </td> */}
-                        <td className="border p-2 font-medium ">
+                        <td className="p-2 font-medium border ">
                           {val.full_name}
                         </td>
-                        <td className="border p-2 font-medium text-blue-500">
+                        <td className="p-2 font-medium text-blue-500 border">
                           <a href={val.domain}>{val.domain.substr(8)}</a>
                         </td>
-                        <td className="border p-2 font-medium ">{val.email}</td>
-                        <td className="border p-2 font-medium ">
+                        <td className="p-2 font-medium border ">{val.email}</td>
+                        <td className="p-2 font-medium border ">
                           {/* DOWNLOAD | UPLOAD */}
                           <input
                             type="file"

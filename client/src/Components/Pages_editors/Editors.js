@@ -14,7 +14,7 @@ const Editors = () => {
   const jwt = auth.isAuthenticated();
 
   // Get Api
-  let url = 'http://localhost:8080/api/editors'
+  let url = 'https://stocksgainer.com/api/editors'
 
 
   // useEffect(() => {
@@ -100,18 +100,18 @@ const Editors = () => {
   };
   return (
     <>
-      <div className=" bar-nav justify-between">
+      <div className="justify-between bar-nav">
         <div>
           <Link to={"/issues/editors/add"}>
-            <button className="w-auto p-2 text-center bg-green-700 rounded text-white uppercase text-xs">add new</button>
+            <button className="w-auto p-2 text-xs text-center text-white uppercase bg-green-700 rounded">add new</button>
           </Link>
         </div>
         <div className='flex'>
-          <p className="w-auto mr-1 p-1 text-center rounded text-green-700 text-m">{first} - {last} of {list.length}<hr /></p>
-          <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-xs" onClick={() => handlePagination('start')}>start</button>
-          <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-xs" disabled={first <= 1} onClick={() => handlePagination(0)}>prev</button>
-          <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-xs" disabled={list.length <= last} onClick={() => handlePagination(1)}>next</button>
-          <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-xs" onClick={() => handlePagination('last')}>last</button>
+          <p className="w-auto p-1 mr-1 text-center text-green-700 rounded text-m">{first} - {last} of {list.length}<hr /></p>
+          <button className="w-auto p-2 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('start')}>start</button>
+          <button className="w-auto p-2 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200" disabled={first <= 1} onClick={() => handlePagination(0)}>prev</button>
+          <button className="w-auto p-2 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200" disabled={list.length <= last} onClick={() => handlePagination(1)}>next</button>
+          <button className="w-auto p-2 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('last')}>last</button>
         </div>
       </div>
       <div className="flex flex-col mt-14">
@@ -119,24 +119,24 @@ const Editors = () => {
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 ">
             <div className="overflow-hidden">
               <table className="min-w-full text-sm font-light" style={{ border: "black" }}>
-                <thead className="border-b font-medium">
+                <thead className="font-medium border-b">
                   <tr className='bg-gray-100'>
                     <th scope="col"
-                      className="border p-2 text-xs" nowrap="">S. NO.</th>
+                      className="p-2 text-xs border" nowrap="">S. NO.</th>
                     <th scope="col"
-                      className="border p-2 text-xs">NAME</th>
+                      className="p-2 text-xs border">NAME</th>
                     <th scope="col"
-                      className="border p-2 text-xs">EMAIL</th>
+                      className="p-2 text-xs border">EMAIL</th>
                     <th scope="col"
-                      className="border p-2 text-xs">DOMAIN</th>
+                      className="p-2 text-xs border">DOMAIN</th>
                     <th scope="col"
-                      className="border p-2 text-xs">RESUME</th>
+                      className="p-2 text-xs border">RESUME</th>
                     <th scope="col"
-                      className="border p-2 text-xs">CERTIFICATE</th>
+                      className="p-2 text-xs border">CERTIFICATE</th>
                     <th scope="col"
-                      className="border p-2 text-xs">STATUS</th>
+                      className="p-2 text-xs border">STATUS</th>
                     <th scope="col"
-                      className="border p-2 text-xs">CREATED ON</th>
+                      className="p-2 text-xs border">CREATED ON</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -145,21 +145,21 @@ const Editors = () => {
                       let journalName = journalOptions.filter((value) => value.value == val.journal_id)
                       return (
                         <tr className={`border border-black ${getStatusColorClass(val.status)}`} key={ind} id={ind}>
-                          <td className="border p-2 font-normal">{val.id}</td>
-                          <td className="border p-2 font-normal">{journalName[0]?.label}</td>
-                          <td className="border p-2 font-normal">{val.email}</td>
-                          <td className="border p-2 font-normal text-blue-500">
+                          <td className="p-2 font-normal border">{val.id}</td>
+                          <td className="p-2 font-normal border">{journalName[0]?.label}</td>
+                          <td className="p-2 font-normal border">{val.email}</td>
+                          <td className="p-2 font-normal text-blue-500 border">
                             {journalName.length > 0 && journalName[0]?.domain && journalName[0].domain.length > 8 && (
                               <a href={journalName[0].domain}>{journalName[0].domain.substr(8)}</a>
                             )}
                           </td>
-                          <td className="border p-2 font-normal">{val.resume}</td>
-                          {/* <td className="border p-2 font-normal">{val.certificate}</td> */}
-                          <td className="border p-2 font-normal">
+                          <td className="p-2 font-normal border">{val.resume}</td>
+                          {/* <td className="p-2 font-normal border">{val.certificate}</td> */}
+                          <td className="p-2 font-normal border">
                             <link>
                             </link>
                           </td>
-                          <td className="border p-2 font-normal w-30">
+                          <td className="p-2 font-normal border w-30">
                             <select id="countries" value={val.status} onChange={(e) => handleChangeStatus(e, val)}
                               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                               <option value="pending">Pending</option>
@@ -168,7 +168,7 @@ const Editors = () => {
                               <option value="prob_mail_sent">Problem mail sent</option>
                             </select>
                           </td>
-                          <td className="border p-2 font-normal text-end upp">{val.created_by}<br /><span className='whitespace-nowrap'>
+                          <td className="p-2 font-normal border text-end upp">{val.created_by}<br /><span className='whitespace-nowrap'>
                             {formatDate(val.created_at)} </span></td>
                         </tr>
                       )

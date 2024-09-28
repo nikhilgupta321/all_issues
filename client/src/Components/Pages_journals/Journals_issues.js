@@ -16,7 +16,7 @@ const Journals_issues = () => {
   // Convert the statusValue to a number if needed
   statusValue = parseInt(statusValue);
   console.log(statusValue)
-  let url = 'http://localhost:8080/api/journals'
+  let url = 'https://stocksgainer.com/api/journals'
   const GetData = () => {
     try {
       axios.get(url, {
@@ -66,27 +66,27 @@ const Journals_issues = () => {
     <>
       <div className="bar-nav">
         <Link to={"/issues/journals/entries/status/149/add"}>
-          <button className="w-auto p-2 text-center bg-green-700 rounded text-white uppercase text-sm">add new</button>
+          <button className="w-auto p-2 text-sm text-center text-white uppercase bg-green-700 rounded">add new</button>
         </Link>
       </div>
-      <div className='mt-20 m-4'>
+      <div className='m-4 mt-20'>
         <div className="flex flex-col">
-          <h1 className='font-bold text-xl mb-2' style={{ fontSize: "25px" }}>2023</h1>
+          <h1 className='mb-2 text-xl font-bold' style={{ fontSize: "25px" }}>2023</h1>
           <Link to={"/issues/journals//entries/status/149/2023"}>
-            <div className="text-green-700 uppercase w-100 mb-2">Volume 5</div>
+            <div className="mb-2 text-green-700 uppercase w-100">Volume 5</div>
           </Link>
         </div>
         <br />
-        <h1 className='font-bold text-xl mb-2' style={{ fontSize: "25px" }}>2022</h1>
-        <div className="w-100 mb-2"><a href="https://www.royalpublications.net/issues/journals/articles/149/2022/4/1"
+        <h1 className='mb-2 text-xl font-bold' style={{ fontSize: "25px" }}>2022</h1>
+        <div className="mb-2 w-100"><a href="https://www.royalpublications.net/issues/journals/articles/149/2022/4/1"
           className="text-green-700 uppercase">Volume 4</a></div>
           <br />
         {Object.keys(data).map((year) => (
           <div key={year}>
             {/* {year} */}
             {/* You can also render additional components or data  for each year here */}
-            <h1 className='font-bold text-xl mb-2' style={{ fontSize: "25px" }}>{year}</h1>
-            <div className="w-100 mb-2">
+            <h1 className='mb-2 text-xl font-bold' style={{ fontSize: "25px" }}>{year}</h1>
+            <div className="mb-2 w-100">
               <p className="text-green-700 uppercase" onClick={() => handleOpenVolume(year)}>Volume 4</p>
             </div>
           </div>

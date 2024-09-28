@@ -42,7 +42,7 @@ const Journals_allbutton = (props) => {
   
 
   console.log(location.state);
-  let url = "http://localhost:8080/api/entries";
+  let url = "https://stocksgainer.com/api/entries";
   const fetchData = () => {
     try {
       axios
@@ -182,89 +182,89 @@ const Journals_allbutton = (props) => {
 
   return (
     <>
-      <div className="bar-nav justify-between">
+      <div className="justify-between bar-nav">
         <div className="space-x-1">
           <button
             onClick={() => setType("pending")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 uppercase text-xs"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Pending
           </button>
           <button
             onClick={() => setType("published")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Published
           </button>
           <button
             onClick={() => setType("withdraw")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Withdraw
           </button>
           <button
             onClick={() => setType("notmade")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Not Made
           </button>
           <button
             onClick={() => setType("made")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Made
           </button>
           <button
             onClick={() => setType("urgent")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Urgent
           </button>
           <button
             onClick={() => setType("today")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Today
           </button>
           <button
             onClick={() => setType("probmailsent")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Prob Mail Sent
           </button>
           <button
             onClick={() => setType("probmailreceived")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Prob Mail Received
           </button>
           <button
             onClick={() => setType("wrongentry")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Wrong Entry
           </button>
           <button
             onClick={() => setType("remindersent")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Reminder Sent
           </button>
           <button
             onClick={() => setType("reminder")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Reminder
           </button>
           <button
             onClick={() => setType("noreply")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             No Reply
           </button>
           <button
             onClick={() => setType("remarks")}
-            className="w-auto px-1 py-2 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-2 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
           >
             Remarks
           </button>
@@ -316,32 +316,32 @@ const Journals_allbutton = (props) => {
         </div>
 
         <div className="flex">
-          <div className="w-auto  mr-2 py-2 text-center rounded text-green-700 text-sm">
+          <div className="w-auto py-2 mr-2 text-sm text-center text-green-700 rounded">
             {first} - {last} of {data.length}
             <hr />
           </div>
           <button
-            className="w-auto mr-1 px-1 py-1 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-1 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
             onClick={() => handlePagination("start")}
           >
             Start
           </button>
           <button
-            className="w-auto mr-1 px-1 py-1 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-1 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
             disabled={first <= 1}
             onClick={() => handlePagination(0)}
           >
             Prev
           </button>
           <button
-            className="w-auto mr-1 px-1 py-1 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-1 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
             disabled={data.length <= last}
             onClick={() => handlePagination(1)}
           >
             Next
           </button>
           <button
-            className="w-auto mr-1 px-1 py-1 text-center bg-gray-300 rounded text-black-200 text-xs uppercase"
+            className="w-auto px-1 py-1 mr-1 text-xs text-center uppercase bg-gray-300 rounded text-black-200"
             onClick={() => handlePagination("last")}
           >
             Last
@@ -352,55 +352,55 @@ const Journals_allbutton = (props) => {
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block w-full py-2 sm:px-6 lg:px-2 ">
             <div className="overflow-hidden">
-              <table className="min-w-full border text-sm font-light border-slate-700">
-                <thead className="border-b font-normal uppercase">
+              <table className="min-w-full text-sm font-light border border-slate-700">
+                <thead className="font-normal uppercase border-b">
                   <tr className="bg-gray-100">
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       S.No.
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Type
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Txn Id
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Ref. No.
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Email
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Title
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Created At
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Payment Check On
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Date
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Made On
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Published On
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Remarks
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Raw File
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Main File
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Withdraw On
                     </th>
-                    <th scope="col" className="border p-1 text-xs ">
+                    <th scope="col" className="p-1 text-xs border ">
                       Status
                     </th>
                   </tr>
@@ -415,56 +415,56 @@ const Journals_allbutton = (props) => {
                         key={ind}
                         id={ind}
                       >
-                        <td className="border p-1 font-normal text-center">
+                        <td className="p-1 font-normal text-center border">
                           {ind + 1}
                         </td>
-                        <td className="border p-1 font-normal uppercase">
+                        <td className="p-1 font-normal uppercase border">
                           {val.type}
                         </td>
-                        <td className="border p-1 font-normal">{val.txnid}</td>
-                        <td className="border p-1 font-normal">
+                        <td className="p-1 font-normal border">{val.txnid}</td>
+                        <td className="p-1 font-normal border">
                           {val.refnumber}
                         </td>
-                        <td className="w-2 border p-2 font-normal">
+                        <td className="w-2 p-2 font-normal border">
                           {val.email.slice(0, 3)}...
                         </td>
-                        <td className="border p-1 font-normal">{val.title}</td>
-                        <td className="border p-1 font-normal text-end">
+                        <td className="p-1 font-normal border">{val.title}</td>
+                        <td className="p-1 font-normal border text-end">
                           {val.created_by}
                           <br />
                           <span className="whitespace-nowrap">
                             {formatDate(val.created_at)}{" "}
                           </span>{" "}
                         </td>
-                        <td className="border p-1 font-normal text-end">
+                        <td className="p-1 font-normal border text-end">
                           {val.payment_received_by} <br />
                           <span className="whitespace-nowrap">
                             {formatDate(val.payment_received_at)}
                           </span>
                         </td>
-                        <td className="border p-1 font-normal">
+                        <td className="p-1 font-normal border">
                           <button type="submit">
                             <i>{val.date}</i>
                           </button>
                         </td>
-                        <td className="border p-1 font-normal text-end">
+                        <td className="p-1 font-normal border text-end">
                           {val.made_by}
                           <br />
                           <span className="whitespace-nowrap">
                             {formatDate(val.made_at)}
                           </span>{" "}
                         </td>
-                        <td className="border p-1 font-normal text-end">
+                        <td className="p-1 font-normal border text-end">
                           {val.published_by}
                           <br />
                           <span className="whitespace-nowrap">
                             {formatDate(val.published_at)}
                           </span>
                         </td>
-                        <td className="border font-normal">
+                        <td className="font-normal border">
                           <div className="text-end ">
                             <button
-                              className="px-1 bg-green-700 text-white rounded uppercase text-xs"
+                              className="px-1 text-xs text-white uppercase bg-green-700 rounded"
                               onClick={() => handleSaveClick(val.id)}
                             >
                               save
@@ -477,42 +477,42 @@ const Journals_allbutton = (props) => {
                               onChange={(e) =>
                                 handleInputChange(val.id, e.target.value)
                               }
-                              className="w-20 h-4 outline-none p-1"
+                              className="w-20 h-4 p-1 outline-none"
                             />
                             {/* <input type='text' value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)} className='w-20 h-4 outline-none p-1' /> */}
+                                onChange={(e) => setInputValue(e.target.value)} className='w-20 h-4 p-1 outline-none' /> */}
                           </div>
                         </td>
-                        <td className="border p-2 font-normal uppercase text-center">
+                        <td className="p-2 font-normal text-center uppercase border">
                           <a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/rawfile-PlantScience5048-1695797758.docx">
                             <b>Download</b>
                           </a>
                           <br />
                           <button
                             type="button"
-                            className="uppercase bg-gray-300 rounded p-1"
+                            className="p-1 uppercase bg-gray-300 rounded"
                           >
                             Upload
                           </button>
                         </td>
-                        <td className="border p-2 font-normal uppercase text-center">
+                        <td className="p-2 font-normal text-center uppercase border">
                           <a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/mainfile-PlantScience5048-1695981104.doc">
                             <b>Download</b>
                           </a>
                           <br />
                           <button
                             type="button"
-                            className="uppercase bg-gray-300 rounded p-1"
+                            className="p-1 uppercase bg-gray-300 rounded"
                           >
                             Upload
                           </button>
                         </td>
-                        <td className="border p-2 font-normal "></td>
-                        <td className="border p-2 font-normal">
+                        <td className="p-2 font-normal border "></td>
+                        <td className="p-2 font-normal border">
                           <select
                             value={val.status}
                             onChange={(e) => handleChangeStatus(e, val)}
-                            className=" border-2 border-gray-500 focus:ring-blue-500 focus:border-blue-500  rounded"
+                            className="border-2 border-gray-500 rounded focus:ring-blue-500 focus:border-blue-500"
                           >
                             <option value="">Select Status</option>
                             <option value="probmailsent">Prob Mail Sent</option>

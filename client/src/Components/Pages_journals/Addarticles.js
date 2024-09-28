@@ -6,7 +6,7 @@ const Addarticles = () => {
   const [data, setData] = useState([])
   const [showNo, setShowNo] = useState({ first: 0, last: 10 })
 
-  let url = 'http://localhost:8080/api/articales'
+  let url = 'https://stocksgainer.com/api/articales'
   const GetData = () => {
     try {
       axios.get(url).then((resp) => {
@@ -39,66 +39,66 @@ const Addarticles = () => {
   };
   return (
     <>
-      <div className=" bar-nav justify-end">
-        <p className="w-auto mr-1 p-2 text-center rounded text-green-700 text-lg" >{first} - {last} of {data.length}<hr /></p>
-        <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" onClick={() => handlePagination('start')}>start</button>
-        <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" disabled={first <= 0} onClick={() => handlePagination(0)}>prev</button>
-        <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" disabled={data.length <= last} onClick={() => handlePagination(1)}>next</button>
-        <button className="w-auto mr-1 p-2 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" onClick={() => handlePagination('last')}>last</button>
+      <div className="justify-end bar-nav">
+        <p className="w-auto p-2 mr-1 text-lg text-center text-green-700 rounded" >{first} - {last} of {data.length}<hr /></p>
+        <button className="w-auto p-2 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('start')}>start</button>
+        <button className="w-auto p-2 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" disabled={first <= 0} onClick={() => handlePagination(0)}>prev</button>
+        <button className="w-auto p-2 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" disabled={data.length <= last} onClick={() => handlePagination(1)}>next</button>
+        <button className="w-auto p-2 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('last')}>last</button>
       </div>
       <div className="flex flex-col mt-16">
         <div>
           <Link to={"/issues/journals/entries/status/149/2023/1"}>
-            <button className="w-auto p-2 text-center bg-green-700 rounded text-white uppercase text-sm">add new</button>
+            <button className="w-auto p-2 text-sm text-center text-white uppercase bg-green-700 rounded">add new</button>
           </Link>
         </div>
         <div></div>
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 ">
             <div className="overflow-hidden">
-              <table className="min-w-full border text-sm font-light border-slate-700">
-                <thead className="border-b font-medium uppercase">
+              <table className="min-w-full text-sm font-light border border-slate-700">
+                <thead className="font-medium uppercase border-b">
                   <tr className='bg-gray-100'>
-                    <th scope="col" className="border p-2 text-sm ">S.No.</th>
-                    <th scope="col" className="border p-2 text-sm ">Type</th>
-                    <th scope="col" className="border p-2 text-sm ">Txn Id</th>
-                    <th scope="col" className="border p-2 text-sm ">Ref. No.</th>
-                    <th scope="col" className="border p-2 text-sm ">Name</th>
-                    <th scope="col" className="border p-2 text-sm ">Title</th>
-                    <th scope="col" className="border p-2 text-sm ">Email</th>
-                    <th scope="col" className="border p-2 text-sm ">Phone</th>
-                    <th scope="col" className="border p-2 text-sm ">Country</th>
-                    <th scope="col" className="border p-2 text-sm ">Remarks</th>
-                    <th scope="col" className="border p-2 text-sm ">Raw File</th>
-                    <th scope="col" className="border p-2 text-sm ">Main File</th>
-                    <th scope="col" className="border p-2 text-sm ">Created At</th>
-                    <th scope="col" className="border p-2 text-sm ">Status</th>
+                    <th scope="col" className="p-2 text-sm border ">S.No.</th>
+                    <th scope="col" className="p-2 text-sm border ">Type</th>
+                    <th scope="col" className="p-2 text-sm border ">Txn Id</th>
+                    <th scope="col" className="p-2 text-sm border ">Ref. No.</th>
+                    <th scope="col" className="p-2 text-sm border ">Name</th>
+                    <th scope="col" className="p-2 text-sm border ">Title</th>
+                    <th scope="col" className="p-2 text-sm border ">Email</th>
+                    <th scope="col" className="p-2 text-sm border ">Phone</th>
+                    <th scope="col" className="p-2 text-sm border ">Country</th>
+                    <th scope="col" className="p-2 text-sm border ">Remarks</th>
+                    <th scope="col" className="p-2 text-sm border ">Raw File</th>
+                    <th scope="col" className="p-2 text-sm border ">Main File</th>
+                    <th scope="col" className="p-2 text-sm border ">Created At</th>
+                    <th scope="col" className="p-2 text-sm border ">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
                     data.slice(first, last).map((val, ind) => {
                       return (
-                        <tr className="border  border-black">
-                          <td className="border p-2 font-medium">{ind + 1}</td>
-                          <td className="border p-2 font-medium">{val.type}</td>
-                          <td className="border p-2 font-medium">{val.txnid}</td>
-                          <td className="border p-2 font-medium">{val.refno}</td>
-                          <td className="border p-2 font-medium">{val.name}</td>
-                          <td className="border p-2 font-medium">{val.title}</td>
-                          <td className="border p-2 font-medium">{val.email}</td>
-                          <td className="border p-2 font-medium">{val.phone}</td>
-                          <td className="border p-2 font-medium">{val.country}</td>
-                          <td className="border font-medium">
-                            <div className='text-end '><button className='bg-green-500 rounded uppercase'>save</button></div>
-                            <div className='w-full'><input type='text' className='w full outline-none p-2' /></div>
+                        <tr className="border border-black">
+                          <td className="p-2 font-medium border">{ind + 1}</td>
+                          <td className="p-2 font-medium border">{val.type}</td>
+                          <td className="p-2 font-medium border">{val.txnid}</td>
+                          <td className="p-2 font-medium border">{val.refno}</td>
+                          <td className="p-2 font-medium border">{val.name}</td>
+                          <td className="p-2 font-medium border">{val.title}</td>
+                          <td className="p-2 font-medium border">{val.email}</td>
+                          <td className="p-2 font-medium border">{val.phone}</td>
+                          <td className="p-2 font-medium border">{val.country}</td>
+                          <td className="font-medium border">
+                            <div className='text-end '><button className='uppercase bg-green-500 rounded'>save</button></div>
+                            <div className='w-full'><input type='text' className='p-2 outline-none w full' /></div>
                           </td>
-                          <td className="border p-2 font-medium uppercase text-center" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/rawfile-PlantScience5048-1695797758.docx"><b>Download</b></a><br />
-                            <button type="button" className='uppercase bg-gray-300 rounded p-1'>Upload</button></td>
-                          <td className="border p-2 font-medium uppercase text-center" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/mainfile-PlantScience5048-1695981104.doc"><b>Download</b></a><br /><button type="button" className='uppercase bg-gray-300 rounded p-1'>Upload</button></td>
-                          <td className="border p-2 font-medium " >{val.createdat}</td>
-                          <td className="border p-2 font-medium">
-                            <select className='border-2 border-gray-500 focus:ring-blue-500 focus:border-blue-500  rounded'>
+                          <td className="p-2 font-medium text-center uppercase border" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/rawfile-PlantScience5048-1695797758.docx"><b>Download</b></a><br />
+                            <button type="button" className='p-1 uppercase bg-gray-300 rounded'>Upload</button></td>
+                          <td className="p-2 font-medium text-center uppercase border" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/mainfile-PlantScience5048-1695981104.doc"><b>Download</b></a><br /><button type="button" className='p-1 uppercase bg-gray-300 rounded'>Upload</button></td>
+                          <td className="p-2 font-medium border " >{val.createdat}</td>
+                          <td className="p-2 font-medium border">
+                            <select className='border-2 border-gray-500 rounded focus:ring-blue-500 focus:border-blue-500'>
                               <option value="" selected>Select Status</option>
                               <option value="probmailsent" >Prob Mail Sent</option>
                               <option value="probmailreceived" >Prob Mail Received</option>

@@ -14,7 +14,7 @@ const Year_Journal_list = () => {
 
   const datas = location.state;
   console.log(datas)
-  let url = 'http://localhost:8080/api/entries'
+  let url = 'https://stocksgainer.com/api/entries'
   // const fetchData = () => {
   //   try {
   //     axios.get(url, {
@@ -145,43 +145,43 @@ const Year_Journal_list = () => {
 
   return (
     <>
-      <div className="bar-nav justify-between">
+      <div className="justify-between bar-nav">
         <div>
           <Link to={"/issues/journals/entries/status/149/2023/1"}>
-            <button className="w-auto p-2 text-center bg-green-700 rounded text-white uppercase text-sm">add new</button>
+            <button className="w-auto p-2 text-sm text-center text-white uppercase bg-green-700 rounded">add new</button>
           </Link>
         </div>
         <div className='flex'>
-          {/* <p className="w-auto mr-1 p-1 text-center rounded text-green-700 text-lg">{first} - {last} of {list.length}<hr /></p> */}
-          <button className="w-auto mr-1 p-1 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" onClick={() => handlePagination('start')}>start</button>
-          <button className="w-auto mr-1 p-1 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" disabled={first <= 1} onClick={() => handlePagination(0)}>prev</button>
-          {/* <button className="w-auto mr-1 p-1 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" disabled={list.length <= last} onClick={() => handlePagination(1)}>next</button> */}
-          <button className="w-auto mr-1 p-1 text-center bg-gray-300 rounded text-black-200 uppercase text-sm" onClick={() => handlePagination('last')}>last</button>
+          {/* <p className="w-auto p-1 mr-1 text-lg text-center text-green-700 rounded">{first} - {last} of {list.length}<hr /></p> */}
+          <button className="w-auto p-1 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('start')}>start</button>
+          <button className="w-auto p-1 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" disabled={first <= 1} onClick={() => handlePagination(0)}>prev</button>
+          {/* <button className="w-auto p-1 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" disabled={list.length <= last} onClick={() => handlePagination(1)}>next</button> */}
+          <button className="w-auto p-1 mr-1 text-sm text-center uppercase bg-gray-300 rounded text-black-200" onClick={() => handlePagination('last')}>last</button>
         </div>
       </div>
       <div className="flex flex-col mt-16">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block w-full py-2 sm:px-6 lg:px-2 ">
             <div className="overflow-hidden">
-              <table className="min-w-full border text-sm font-light border-slate-700">
-                <thead className="border-b font-normal uppercase">
+              <table className="min-w-full text-sm font-light border border-slate-700">
+                <thead className="font-normal uppercase border-b">
                   <tr className='bg-gray-100'>
-                    <th scope="col" className="border p-1 text-xs ">S.No.</th>
-                    <th scope="col" className="border p-1 text-xs ">Type</th>
-                    <th scope="col" className="border p-1 text-xs ">Txn Id</th>
-                    <th scope="col" className="border p-1 text-xs ">Ref. No.</th>
-                    <th scope="col" className="border p-1 text-xs ">Email</th>
-                    <th scope="col" className="border p-1 text-xs ">Title</th>
-                    <th scope="col" className="border p-1 text-xs ">Created At</th>
-                    <th scope="col" className="border p-1 text-xs ">Payment Check On</th>
-                    <th scope="col" className="border p-1 text-xs ">Date</th>
-                    <th scope="col" className="border p-1 text-xs ">Made On</th>
-                    <th scope="col" className="border p-1 text-xs ">Published On</th>
-                    <th scope="col" className="border p-1 text-xs ">Remarks</th>
-                    <th scope="col" className="border p-1 text-xs ">Raw File</th>
-                    <th scope="col" className="border p-1 text-xs ">Main File</th>
-                    <th scope="col" className="border p-1 text-xs ">Withdraw On</th>
-                    <th scope="col" className="border p-1 text-xs ">Status</th>
+                    <th scope="col" className="p-1 text-xs border ">S.No.</th>
+                    <th scope="col" className="p-1 text-xs border ">Type</th>
+                    <th scope="col" className="p-1 text-xs border ">Txn Id</th>
+                    <th scope="col" className="p-1 text-xs border ">Ref. No.</th>
+                    <th scope="col" className="p-1 text-xs border ">Email</th>
+                    <th scope="col" className="p-1 text-xs border ">Title</th>
+                    <th scope="col" className="p-1 text-xs border ">Created At</th>
+                    <th scope="col" className="p-1 text-xs border ">Payment Check On</th>
+                    <th scope="col" className="p-1 text-xs border ">Date</th>
+                    <th scope="col" className="p-1 text-xs border ">Made On</th>
+                    <th scope="col" className="p-1 text-xs border ">Published On</th>
+                    <th scope="col" className="p-1 text-xs border ">Remarks</th>
+                    <th scope="col" className="p-1 text-xs border ">Raw File</th>
+                    <th scope="col" className="p-1 text-xs border ">Main File</th>
+                    <th scope="col" className="p-1 text-xs border ">Withdraw On</th>
+                    <th scope="col" className="p-1 text-xs border ">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -189,41 +189,41 @@ const Year_Journal_list = () => {
                     data.slice(first, last).map((val, ind) => {
                       return (
                         <tr className={`border border-black ${getStatusColorClass(val.status)}`} key={ind} id={ind}>
-                          <td className="border p-1 font-normal text-center">{ind + 1}</td>
-                          <td className="border p-1 font-normal uppercase">{val.type}</td>
-                          <td className="border p-1 font-normal">{val.txnid}</td>
-                          <td className="border p-1 font-normal">{val.refnumber}</td>
-                          <td className="w-2 border p-2 font-normal">{val.email.slice(0, 3)}...</td>
-                          <td className="border p-1 font-normal">{val.title}</td>
-                          <td className="border p-1 font-normal text-end" >{val.created_by}<br /><span className='whitespace-nowrap'>
+                          <td className="p-1 font-normal text-center border">{ind + 1}</td>
+                          <td className="p-1 font-normal uppercase border">{val.type}</td>
+                          <td className="p-1 font-normal border">{val.txnid}</td>
+                          <td className="p-1 font-normal border">{val.refnumber}</td>
+                          <td className="w-2 p-2 font-normal border">{val.email.slice(0, 3)}...</td>
+                          <td className="p-1 font-normal border">{val.title}</td>
+                          <td className="p-1 font-normal border text-end" >{val.created_by}<br /><span className='whitespace-nowrap'>
                             {formatDate(val.created_at)} </span> </td>
-                          <td className="border p-1 font-normal text-end">{val.payment_received_by} <br /><span className='whitespace-nowrap'>{formatDate(val.payment_received_at)}</span></td>
-                          <td className="border p-1 font-normal">
+                          <td className="p-1 font-normal border text-end">{val.payment_received_by} <br /><span className='whitespace-nowrap'>{formatDate(val.payment_received_at)}</span></td>
+                          <td className="p-1 font-normal border">
                             <button type="submit"><i>{val.date}</i></button>
                           </td>
-                          <td className="border p-1 font-normal text-end">{val.made_by}<br /><span className='whitespace-nowrap'>
+                          <td className="p-1 font-normal border text-end">{val.made_by}<br /><span className='whitespace-nowrap'>
                             {formatDate(val.made_at)}</span> </td>
-                          <td className="border p-1 font-normal text-end">{val.published_by}<br /><span className='whitespace-nowrap'>
+                          <td className="p-1 font-normal border text-end">{val.published_by}<br /><span className='whitespace-nowrap'>
                             {formatDate(val.published_at)}</span></td>
-                          <td className="border font-normal">
-                            <div className='text-end '><button className='px-1 bg-green-700 text-white rounded uppercase text-xs' onClick={() => handleSaveClick(val.id)}>save</button></div>
+                          <td className="font-normal border">
+                            <div className='text-end '><button className='px-1 text-xs text-white uppercase bg-green-700 rounded' onClick={() => handleSaveClick(val.id)}>save</button></div>
                             <div className='w-full'>
                               <input
                                 type="text"
                                 value={inputValues[val.id] || ''}
                                 onChange={(e) => handleInputChange(val.id, e.target.value)}
-                                className="w-20 h-4 outline-none p-1"
+                                className="w-20 h-4 p-1 outline-none"
                               />
                               {/* <input type='text' value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)} className='w-20 h-4 outline-none p-1' /> */}
+                                onChange={(e) => setInputValue(e.target.value)} className='w-20 h-4 p-1 outline-none' /> */}
                             </div>
                           </td>
-                          <td className="border p-2 font-normal uppercase text-center" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/rawfile-PlantScience5048-1695797758.docx"><b>Download</b></a><br />
-                            <button type="button" className='uppercase bg-gray-300 rounded p-1'>Upload</button></td>
-                          <td className="border p-2 font-normal uppercase text-center" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/mainfile-PlantScience5048-1695981104.doc"><b>Download</b></a><br /><button type="button" className='uppercase bg-gray-300 rounded p-1'>Upload</button></td>
-                          <td className="border p-2 font-normal " ></td>
-                          <td className="border p-2 font-normal">
-                            <select value={val.status} onChange={(e) => handleChangeStatus(e, val)} className=' border-2 border-gray-500 focus:ring-blue-500 focus:border-blue-500  rounded'>
+                          <td className="p-2 font-normal text-center uppercase border" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/rawfile-PlantScience5048-1695797758.docx"><b>Download</b></a><br />
+                            <button type="button" className='p-1 uppercase bg-gray-300 rounded'>Upload</button></td>
+                          <td className="p-2 font-normal text-center uppercase border" ><a href="https://www.royalpublications.net/issues/uploads/archives/Plant Science/vol5-issue1/mainfile-PlantScience5048-1695981104.doc"><b>Download</b></a><br /><button type="button" className='p-1 uppercase bg-gray-300 rounded'>Upload</button></td>
+                          <td className="p-2 font-normal border " ></td>
+                          <td className="p-2 font-normal border">
+                            <select value={val.status} onChange={(e) => handleChangeStatus(e, val)} className='border-2 border-gray-500 rounded focus:ring-blue-500 focus:border-blue-500'>
                               <option value="" >Select Status</option>
                               <option value="probmailsent" >Prob Mail Sent</option>
                               <option value="probmailreceived" >Prob Mail Received</option>

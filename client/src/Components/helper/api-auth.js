@@ -1,6 +1,6 @@
 const login = async (credentials) => {
   try {
-    let response = await fetch('http://localhost:8080/auth/login/', {
+    let response = await fetch('https://stocksgainer.com/auth/login/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -17,7 +17,7 @@ const login = async (credentials) => {
 
 const verifyToken = async (credentials) => {
   try {
-    let response = await fetch('http://localhost:8080/auth/verify-token/', {
+    let response = await fetch('https://stocksgainer.com/auth/verify-token/', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',

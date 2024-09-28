@@ -25,13 +25,7 @@ const port = process.env.PORT || 9000;
 //     limits: { fileSize: 5 * 1024 * 1024 },
 //   })
 // );
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["POST", "GET", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // console.log(path.join(__dirname, '../client/build'));
 app.use(express.static(path.join(__dirname, '../client/build')));

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const listEditors = async (credentials) => {
   try {
-    const response = await axios.get('http://localhost:8080/api/editors', {
+    const response = await axios.get('https://stocksgainer.com/api/editors', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

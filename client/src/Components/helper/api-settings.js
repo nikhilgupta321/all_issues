@@ -1,6 +1,6 @@
 const getSettings = async (credentials) => {
   try {
-    let response = await fetch("http://localhost:8080/settings", {
+    let response = await fetch("https://stocksgainer.com/settings", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -17,7 +17,7 @@ const getSettings = async (credentials) => {
 
 const updateSettings = async (data, credentials) => {
   try {
-    let response = await fetch(`http://localhost:8080/settings`, {
+    let response = await fetch(`https://stocksgainer.com/settings`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
