@@ -27,7 +27,7 @@ const config = {
 const sequelize = new Sequelize({
 
   dialect: dialect,
-  host: host,
+  host: 'localhost',
   username: username,
   password: password,
   database: database,

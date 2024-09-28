@@ -3,6 +3,7 @@ const { sequelize, config } = require('./config/config');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const path = require('path')
+require("dotenv").config();
 // Import routes
 const editorsRoutes = require('./routes/editors.routes');
 const countryRoutes = require('./routes/country.router');
@@ -18,7 +19,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
-const port = 8080;
+const port = process.env.PORT || 9000;
 // app.use(
 //   fileUpload({
 //     limits: { fileSize: 5 * 1024 * 1024 },
@@ -32,8 +33,9 @@ app.use(
   })
 );
 
-
-app.use("/dist", express.static(path.join(config.rootDir, "dist")));
+// console.log(path.join(__dirname, '../client/build'));
+app.use(express.static(path.join(__dirname, '../client/build')));
+// app.use("/dist", express.static(path.join(config.rootDir, "dist")));
 app.use(`/assets`, express.static(config.assetsDir));
 app.use(
   `/download`,
