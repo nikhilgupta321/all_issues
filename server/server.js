@@ -52,6 +52,11 @@ app.use('/api', countryRoutes);
 app.use('/api', entriesRoutes);
 app.use('/api', journalsRoutes);
 app.use('/api', AgentsRoutes);
+app.use('/pink',(req,res)=>{
+  return res.status(200).json({
+    message:"working",
+  })
+})
 
 app.use('/', authrouter, helperrouter, settingRoutes)
 
